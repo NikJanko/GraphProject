@@ -10,12 +10,7 @@ public class Node {
 
 //        new Node(id, null, null);
     }
-//    public Node(String id, Integer inDegree, Integer outDegree) {
-//        this.id = id;
-//        this.inDegree = inDegree;
-//        this.outDegree = outDegree;
-//
-//    }
+
     public String getId() {
         return id;
     }

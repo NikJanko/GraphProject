@@ -45,9 +45,6 @@ public class Graph implements IGraph {
                 }
             }
 
-//            gridGraphOutput();
-
-
         } else if (file instanceof String[][]){
             System.out.println("functionality not implemented yet");
             System.exit(0);
@@ -55,34 +52,7 @@ public class Graph implements IGraph {
         } else {
             throw new InvalidObjectType();
         }
-
-
-////            String graphName = reader.nextLine();
-//        Labels = reader.nextLine().split(" ");
-//        int j = 0;
-//        while (reader.hasNextLine()) {
-//            String line = reader.nextLine();
-//            String[] tokens = line.split(" ");
-//            for (int i = 0; i < tokens.length; i++) {
-//                arr[j][i] = Integer.parseInt(tokens[i]);
-//            }
-//            j++;
-//        }
-//
-//
-//        for (String label : Labels) {
-//            System.out.printf("%s%s%s ", "\033[95m", label, "\033[0m");
-//        }
-//        System.out.println();
-//
-//        for (int[] row : arr) {
-//            for (int col : row) {
-//                System.out.printf("%s%d %s", (col == 0 ? "\033[91m" : ""), col, (col == 0 ? "\033[0m" : ""));
-//
-////                System.out.printf("%d ", col);
-//            }
-//            System.out.println();
-//        }
+        
     }
 
     @Override
@@ -100,14 +70,11 @@ public class Graph implements IGraph {
         }
     }
 
-//    public String[] get_node_data(Node n){
-//
-//
-//        String[] node_data = new String[3];
-//        node_data[0] = n.id;
-//        node_data[1] = String.valueOf(n.inDegree);
-//        node_data[2] = String.valueOf(n.outDegree);
-//
-//        return node_data;
-//    }
+    public void setIndegree(){
+        for (int i = 0; i < labels.length; i++) {
+            
+        }
+        
+    }
+    
 }
