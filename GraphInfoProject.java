@@ -20,6 +20,7 @@ public class GraphInfoProject {
 
         Graph g = new Graph();
         try {
+            //todo add functionality for "INF" distance (read in INF, set to < Integer.MAX_VALUE >)
             g.readFile(args[0]);
 
         } catch (FileNotFoundException | NumberFormatException e) {

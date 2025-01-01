@@ -15,10 +15,10 @@ public class Node {
         return id;
     }
     public void setInDegree(Integer inDegree) {
-
+        this.inDegree = inDegree;
     }
     public void setOutDegree(Integer outDegree) {
-
+        this.outDegree = outDegree;
     }
     public Integer getInDegree() {
         return inDegree;
