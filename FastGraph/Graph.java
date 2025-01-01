@@ -22,7 +22,7 @@ public class Graph implements IGraph {
     public void NodeInfo(Node n) {
 
     }
-    //todo here. finish the connections and node creations for labels then get inDegrees, outDegrees and such.
+
     @Override
     public void readFile(Object file) throws FileNotFoundException, NumberFormatException, InvalidObjectType{
         if (file instanceof String filename) {
@@ -45,7 +45,7 @@ public class Graph implements IGraph {
                 }
             }
 
-            gridGraphOutput();
+//            gridGraphOutput();
 
 
         } else if (file instanceof String[][]){

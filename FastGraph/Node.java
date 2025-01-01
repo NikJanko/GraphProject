@@ -19,6 +19,18 @@ public class Node {
     public String getId() {
         return id;
     }
+    public void setInDegree(Integer inDegree) {
+
+    }
+    public void setOutDegree(Integer outDegree) {
+
+    }
+    public Integer getInDegree() {
+        return inDegree;
+    }
+    public Integer getOutDegree() {
+        return outDegree;
+    }
 
 
 }

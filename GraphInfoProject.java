@@ -21,9 +21,13 @@ public class GraphInfoProject {
         Graph g = new Graph();
         try {
             g.readFile(args[0]);
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.exit(1);
+
+        } catch (FileNotFoundException | NumberFormatException e) {
+            System.out.printf("There has been an error with the format of the file. %s", e.getMessage());
+//            e.printStackTrace();
+            System.exit(23);
+        } catch (InvalidObjectType e) {
+            System.out.printf("Unknown object call to parameter %s", e.getMessage());
         }
 
 
