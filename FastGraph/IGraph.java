@@ -8,17 +8,27 @@ public interface IGraph {
      * Connected Nodes (as a link list representation).
      * Each node's inDegrees and outDegrees as well as names.
      * <p>
-     * if Breadth first is possible.
-     * if Depth first is possible.
-     * If a topo_sort is possible
+     * if Euler's path is possible.
+     * if Euler's circuit is present.
+     * If a topo_sort is possible.
      * And Dynamic Programming solution to the shortest path problem.
      */
     void NetworkInfo();
 
+
+    String EulerPath();
+
+    String EulerCircuitPath();
+
+    String TopologicalSortPath();
+
+    String[] DynaProgShortestPath();
+
     /**
-     * The array representation of the Graph
+     * The Matrix Representation of the Graph
      */
-    void GraphInfo();
+    void GridGraphOutput();
+
 
     /**
      * Specific info about a node.
@@ -32,10 +42,12 @@ public interface IGraph {
      */
     void NodeInfo(Node n);
 
+
     /**
      * This class creates both our LABELS array, and our EDGE array.
      */
     void readFile(Object file) throws FileNotFoundException, NumberFormatException, InvalidObjectType;
 
-    void gridGraphOutput();
+    void getSetDegrees();
 }
+

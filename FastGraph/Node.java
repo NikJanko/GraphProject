@@ -1,14 +1,12 @@
 package FastGraph;
 
 public class Node {
-    /*private*/ String id;
-    /*private*/ Integer inDegree;
-    /*private*/ Integer outDegree;
+    private final String id;
+    private Integer inDegree;
+    private Integer outDegree;
 
     public Node(String id) {
         this.id = id;
-
-//        new Node(id, null, null);
     }
 
     public String getId() {
@@ -20,12 +18,17 @@ public class Node {
     public void setOutDegree(Integer outDegree) {
         this.outDegree = outDegree;
     }
-    public Integer getInDegree() {
-        return inDegree;
-    }
-    public Integer getOutDegree() {
-        return outDegree;
-    }
 
 
+    private String s_getInDegree() {
+        return this.inDegree.toString();
+    }
+    private String s_getOutDegree() {
+        return this.outDegree.toString();
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Node Name= %s, InDegrees= %d, OutDegrees= %d", this.id, this.outDegree, this.inDegree);
+    }
 }

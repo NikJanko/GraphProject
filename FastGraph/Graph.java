@@ -1,5 +1,7 @@
 package FastGraph;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -9,22 +11,53 @@ public class Graph implements IGraph {
     private int[][] connections;
 
     @Override
+    public void GridGraphOutput() {
+        for (Node nodeName : this.labels) {
+            System.out.printf("%s%s%s ", "\033[93m", nodeName.getId(), "\033[0m");
+        }
+        System.out.println();
+
+        for (int[] row : this.connections) {
+            for (int elem : row) {
+                System.out.printf("%s%d %s", (elem == 0 ? "\033[91m" : ""), elem, "\033[0m");
+            }
+            System.out.println();
+        }
+    }
+
+    @Override
     public void NetworkInfo() {
 
     }
 
     @Override
-    public void GraphInfo() {
-
+    public String EulerPath() {
+        return "";
     }
+
+    @Override
+    public String EulerCircuitPath() {
+        return "";
+    }
+
+    @Override
+    public String TopologicalSortPath() {
+        return "";
+    }
+
+    @Override
+    public String[] DynaProgShortestPath() {
+        return new String[0];
+    }
+
 
     @Override
     public void NodeInfo(Node n) {
-
+        System.out.printf(n.toString());
     }
 
     @Override
-    public void readFile(Object file) throws FileNotFoundException, NumberFormatException, InvalidObjectType{
+    public void readFile(Object file) throws FileNotFoundException, NumberFormatException, InvalidObjectType {
         if (file instanceof String filename) {
             File graphFile = new File(filename); //open file from command line
             Scanner reader = new Scanner(graphFile);
@@ -45,37 +78,28 @@ public class Graph implements IGraph {
                 }
             }
 
-        } else if (file instanceof String[][]){
+        } else if (file instanceof String[][]) {
             System.out.println("functionality not implemented yet");
             System.exit(0);
             //if we get a graph already
         } else {
             throw new InvalidObjectType();
         }
-        
-    }
 
-    @Override
-    public void gridGraphOutput(){
-        for (Node nodeName : this.labels) {
-            System.out.printf("%s%s%s ","\033[93m", nodeName.getId(), "\033[0m");
-        }
-        System.out.println();
-
-        for (int[] row : this.connections) {
-            for (int elem : row) {
-                System.out.printf("%s%d %s",(elem == 0? "\033[91m":""), elem, "\033[0m");
-            }
+        getSetDegrees();
+        for (Node n : this.labels) {
+            this.NodeInfo(n);
             System.out.println();
         }
+
     }
 
-    public void getSetDegrees(){
+    public void getSetDegrees() {
         //for every node/vertex
-        for (int i=0; i<this.labels.length; i++) {
+        for (int i = 0; i < this.labels.length; i++) {
             //set current Nodes in/out Degree to 0,
             int inDegree = 0, outDegree = 0;
-            for(int j=0; j<this.labels.length; j++) {
+            for (int j = 0; j < this.labels.length; j++) {
 
                 //loop through the Row Column's - check (in degree)
                 boolean isValidInDegree = (this.connections[i][j] != 0 && this.connections[i][j] != Integer.MAX_VALUE);
@@ -94,5 +118,5 @@ public class Graph implements IGraph {
             this.labels[i].setOutDegree(outDegree);
         }
     }
-    
+
 }
