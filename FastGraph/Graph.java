@@ -73,8 +73,8 @@ public class Graph implements IGraph {
             this.connections = new int[this.labels.length][this.labels.length];
             for (int i = 0; i < this.labels.length; i++) {
                 for (int j = 0; j < this.labels.length; j++) {
-                    //MAY throw invalid Integer when parsing "s90" for example.
-                    this.connections[i][j] = Integer.parseInt(reader.next());
+                    //MAY throw invalid Integer when parsing "s90" for example. todo.
+                    this.connections[i][j] = Integer.parseInt(reader.next() == "INF"? Integer.MAX : this);
                 }
             }
 
